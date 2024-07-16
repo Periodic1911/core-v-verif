@@ -283,6 +283,7 @@ module mm_ram
 
     // handle the mapping of read and writes to either memory or pseudo
     // peripherals (currently just a redirection of writes to stdout)
+	// verilator lint_off MULTIDRIVEN
     always_comb begin
         tests_passed_o      = '0;
         tests_failed_o      = '0;
@@ -439,6 +440,7 @@ module mm_ram
             end
         end
     end
+	// verilator lint_on MULTIDRIVEN
 
 `ifndef VERILATOR
     // signal out of bound writes
